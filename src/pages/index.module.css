@@ -1,0 +1,629 @@
+.pageWrapper {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.mainContent {
+  flex: 1;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* --- Header --- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  height: var(--header-height);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navList {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .navList {
+    display: flex;
+  }
+}
+
+.navLink {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: var(--color-text-primary);
+}
+
+.socialLinksHeader {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 992px) {
+  .socialLinksHeader {
+    display: flex;
+  }
+}
+
+.socialLinkItem {
+  /* General class for link wrappers if any */
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+  display: flex;
+}
+
+.socialLinkItem:hover {
+  color: var(--color-text-primary);
+}
+
+.mobileMenuButtonAntd {
+  /* Style for AntD Button used as mobile menu trigger */
+  color: var(--color-text-primary) !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.mobileMenuButtonAntd:hover,
+.mobileMenuButtonAntd:focus {
+  color: var(--antd-primary-color) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+@media (min-width: 992px) {
+  .mobileMenuButtonAntd {
+    display: none !important;
+  }
+}
+
+/* --- Hero Section --- */
+.heroSection {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding-top: var(--header-height);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 700px;
+  z-index: 1;
+  padding-bottom: 5rem;
+}
+
+.heroHeadline {
+  font-size: clamp(2.5rem, 6vw, 3.8rem);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+  color: var(--color-text-primary);
+  letter-spacing: -0.5px;
+}
+
+.heroHeadlineCommunity {
+  font-size: 0.7em;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  display: block;
+  margin-bottom: 0.25em;
+}
+
+.heroSubheadline {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.65;
+  max-width: 550px;
+}
+
+.heroActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.heroButton {
+  /* Custom styling for AntD buttons in hero */
+  border-radius: 999px !important;
+  /* Pill shape */
+  font-weight: 400 !important;
+  font-size: 0.8rem !important;
+  padding: 0.5rem 1.25rem !important;
+  /* Adjust padding if needed */
+  /* AntD ghost buttons on dark bg already have good styling, color comes from ConfigProvider */
+}
+
+.heroButton span {
+  /* Target text span inside AntD button */
+  vertical-align: middle;
+}
+
+.heroButton svg {
+  /* Ensure icon aligns well */
+  vertical-align: middle;
+}
+
+.partnersSection {
+  width: 100%;
+  padding: 1.5rem 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid var(--color-border-subtle);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.partnersTitle {
+  font-size: 0.65rem;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+  display: block;
+  text-align: center;
+}
+
+.partnerLogosContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.partnerLogoItem img {
+  filter: grayscale(100%) brightness(0.7);
+  opacity: 0.7;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.partnerLogoItem img:hover {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+}
+
+/* --- Content Section (General) --- */
+.contentSection {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.contentSection:last-of-type {
+  border-bottom: none;
+}
+
+.sectionMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.sectionMetaCentered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sectionCategory {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.smallSectionIcon {
+  color: var(--color-text-tertiary);
+}
+
+.sectionHeadline {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
+.sectionDescription {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+  max-width: 600px;
+}
+
+.sectionActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.sectionButton {
+  /* Custom styling for AntD buttons in sections */
+  border-radius: 999px !important;
+  font-weight: 400 !important;
+  font-size: 0.75rem !important;
+  padding: 0.4rem 1rem !important;
+}
+
+.sectionButton span {
+  vertical-align: middle;
+}
+
+.sectionButton svg {
+  vertical-align: middle;
+}
+
+/* Technology Highlights Section Specifics */
+.technologySubSection {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.technologySubSection:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.techContentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .techContentGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .zkvmSection .techContentGrid {
+    grid-template-columns: 0.9fr 0.6fr 1.5fr;
+    gap: 1.5rem;
+  }
+}
+
+.techTextContent {
+  /* For text column */
+}
+
+.techVisualContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.techImage {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.techImageZkVM {
+  max-width: 280px;
+  height: auto;
+  object-fit: contain;
+}
+
+.zkvmFeaturesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding-top: 1rem;
+}
+
+.zkvmFeatureItem {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.zkvmFeatureItem::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--color-text-tertiary);
+}
+
+/* Developer Portal Section */
+.textCenter {
+  text-align: center;
+}
+
+.maxWidthLarge {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.developerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.developerCard {
+  background-color: var(--color-card-background);
+  padding: 1.75rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.developerCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-border-interactive);
+}
+
+.developerCardIcon {
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.developerCardIcon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.developerCardTitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.developerCardDescription {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.developerCardLinkAntd {
+  /* Styling for AntD link button in cards */
+  padding: 0 !important;
+  /* Remove default padding for link buttons */
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  color: var(--color-text-secondary) !important;
+  height: auto !important;
+  /* Adjust height */
+  line-height: normal !important;
+  /* Adjust line height */
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.developerCardLinkAntd:hover {
+  color: var(--color-text-primary) !important;
+}
+
+.developerCardLinkAntd svg {
+  margin-left: 0.25rem;
+}
+
+/* Community Engagement Section */
+.justifyCenter {
+  justify-content: center;
+  align-items: center;
+}
+
+.marginTopLarge {
+  margin-top: 2.5rem;
+}
+
+.communityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.communityCard {
+  background-color: var(--color-card-background);
+  padding: 1.75rem 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid var(--color-border-subtle);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.communityCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-border-interactive);
+}
+
+.communityCardIcon {
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.communityCardIcon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.communityCardTitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.communityCardDescription {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* --- Footer --- */
+.footer {
+  border-top: 1px solid var(--color-border-subtle);
+  padding: 1.5rem 0;
+  background-color: #050505;
+}
+
+.footerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footerInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footerText {
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+}
+
+.footerSocials {
+  display: flex;
+  gap: 0.5rem;
+  /* Reduced gap for icon buttons */
+}
+
+.socialLinkItemAntd {
+  /* Styling for AntD text buttons used as social icons */
+  color: var(--color-text-secondary) !important;
+  padding: 0.25rem !important;
+  /* Small padding for icon buttons */
+}
+
+.socialLinkItemAntd:hover {
+  color: var(--color-text-primary) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+
+  .techContentGrid,
+  .zkvmSection .techContentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .techVisualContent {
+    margin-top: 2rem;
+  }
+
+  .zkvmFeaturesList {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+    padding-left: 0;
+  }
+
+  .techImageZkVM {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroHeadline {
+    font-size: 2.2rem;
+  }
+
+  .heroSubheadline {
+    font-size: 0.9rem;
+  }
+
+  .sectionHeadline {
+    font-size: 1.8rem;
+  }
+
+  .footerInner {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .partnersTitle {
+    text-align: center;
+  }
+
+  .partnerLogosContainer {
+    gap: 1.5rem 1rem;
+  }
+}
