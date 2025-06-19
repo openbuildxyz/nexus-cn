@@ -176,16 +176,6 @@ const TechnologyHighlightsSection = () => {
                 </Button>
               </div>
             </div>
-            <div className={styles.techVisualContent}>
-              <Image
-                src="/zkvm-stack-visual.png" // This image is kept in public folder
-                alt="Nexus zkVM Stack"
-                width={350}
-                height={350}
-                objectFit="contain"
-                className={styles.techImageZkVM}
-              />
-            </div>
             <ul className={styles.zkvmFeaturesList}>
               {zkvmFeatures.map((feature, index) => (
                 <li key={index} className={styles.zkvmFeatureItem}>
