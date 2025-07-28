@@ -627,3 +627,27 @@
     gap: 1.5rem 1rem;
   }
 }
+
+.forumPreviewWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.forumPreviewImage {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px;        
+  height: auto;       
+  margin-bottom: 12px; 
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: none;
+  z-index: 10;
+}
+
+.forumPreviewWrapper:hover .forumPreviewImage {
+  display: block;
+}

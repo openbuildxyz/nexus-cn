@@ -8,13 +8,14 @@ import {
   ArrowUpRight,
   Menu,
   Github,
-  MessageSquare,
   Users,
   Code2,
   BookOpen,
   FileText,
   PenToolIcon as Tool,
 } from "lucide-react"
+import { SiGithub, SiDiscord } from "react-icons/si"
+import { useState } from "react"
 
 // --- Constants & Data ---
 const navLinks = [
@@ -24,8 +25,8 @@ const navLinks = [
 ]
 
 const socialIcons = [
-  { href: "https://github.com/Nexusoft", icon: <Github size={18} />, label: "GitHub" },
-  { href: "https://discord.gg/Sales3D2tW", icon: <MessageSquare size={18} />, label: "Discord" },
+  { href: "https://github.com/nexus-xyz", icon: <Github size={18} />, label: "GitHub" },
+  { href: "https://discord.gg/uQm7tuEE", icon: <SiDiscord size={18} />, label: "Discord" },
 ]
 
 
@@ -102,10 +103,10 @@ const HeroSection = () => (
         在人工智能、区块链和零知识证明的交汇点上创新，与全球及华语社区共同探索未来。
       </p>
       <div className={styles.heroActions}>
-        <Button href="#community" className={styles.heroButton} ghost icon={<ArrowUpRight size={16} />}>
+        <Button href="https://linktr.ee/nexuschina  " className={styles.heroButton} ghost icon={<ArrowUpRight size={16} />}>
           加入社区
         </Button>
-        <Button href="#technology" className={styles.heroButton} ghost icon={<ArrowUpRight size={16} />}>
+        <Button href="https://docs.nexus.xyz/home" className={styles.heroButton} ghost icon={<ArrowUpRight size={16} />}>
           了解技术
         </Button>
       </div>
@@ -136,10 +137,10 @@ const TechnologyHighlightsSection = () => {
                 新时代的技术需要全新的基础设施方法。Nexus L1 将世界的算力集中到单一、超高性能、与EVM兼容的区块链中。
               </p>
               <div className={styles.sectionActions}>
-                <Button href="#" className={styles.sectionButton} ghost icon={<ArrowUpRight size={14} />}>
+                <Button href="https://docs.nexus.xyz/home" className={styles.sectionButton} ghost icon={<ArrowUpRight size={14} />}>
                   探索 Layer 1
                 </Button>
-                <Button href="#" className={styles.sectionButton} ghost icon={<ArrowUpRight size={14} />}>
+                <Button href="https://docs.nexus.xyz/home" className={styles.sectionButton} ghost icon={<ArrowUpRight size={14} />}>
                   L1 技术文档
                 </Button>
               </div>
@@ -159,11 +160,11 @@ const TechnologyHighlightsSection = () => {
                 作为通用虚拟机，Nexus zkVM 3.0 驱动着我们的世界超级计算机，并使可验证计算成为现实。
               </p>
               <div className={styles.sectionActions}>
-                <Button href="#" className={styles.sectionButton} ghost icon={<ArrowUpRight size={14} />}>
+                <Button href="https://specification.nexus.xyz/" className={styles.sectionButton} ghost icon={<ArrowUpRight size={14} />}>
                   了解 Nexus zkVM
                 </Button>
                 <Button
-                  href="https://github.com/Nexusoft/Nexus_zkVM"
+                  href="https://github.com/nexus-xyz"
                   target="_blank"
                   className={styles.sectionButton}
                   ghost
@@ -171,7 +172,7 @@ const TechnologyHighlightsSection = () => {
                 >
                   GitHub
                 </Button>
-                <Button href="#" className={styles.sectionButton} ghost icon={<ArrowUpRight size={14} />}>
+                <Button href="https://specification.nexus.xyz/" className={styles.sectionButton} ghost icon={<ArrowUpRight size={14} />}>
                   zkVM 3.0 规范
                 </Button>
               </div>
@@ -197,28 +198,28 @@ const DeveloperPortalSection = () => {
       title: "技术文档",
       description: "获取全面的指南、架构说明和 API 参考，深入了解 Nexus 技术栈。",
       linkText: "阅读文档",
-      linkHref: "#", // TODO: Replace with actual link
+      linkHref: "https://docs.nexus.xyz/home",
     },
     {
       icon: <Tool size={28} />,
       title: "SDK 与工具",
       description: "使用我们强大的软件开发工具包和命令行工具，加速您的开发进程。",
       linkText: "查看工具",
-      linkHref: "#", // TODO: Replace with actual link
+      linkHref: "https://docs.nexus.xyz/zkvm/proving/sdk",
     },
     {
       icon: <Github size={28} />,
       title: "代码库与示例",
       description: "访问 Nexus 在 GitHub 上的开源代码库，查找入门项目和最佳实践范例。",
       linkText: "访问 GitHub",
-      linkHref: "https://github.com/Nexusoft",
+      linkHref: "https://github.com/nexus-xyz",
     },
     {
       icon: <Code2 size={28} />,
       title: "开发者论坛",
       description: "加入开发者专属论坛和 Discord 频道，与其他构建者交流，获取技术支持。",
       linkText: "加入讨论",
-      linkHref: "#", // TODO: Replace with actual link
+      linkHref: "https://discord.gg/uQm7tuEE",
     },
   ]
 
@@ -262,11 +263,13 @@ const CommunityEngagementSection = () => {
       icon: <Users size={24} />,
       title: "交流与讨论",
       description: "加入官方论坛、Discord 及微信群，与全球及本地成员分享见解，讨论 Nexus 的未来。",
+      link: "https://linktr.ee/nexuschina",
     },
     {
       icon: <Code2 size={24} />,
       title: "技术分享与协作",
       description: "参与中文社区组织的技术研讨会、代码贡献活动，共同提升技能，推动项目发展。",
+      link: "https://github.com/nexus-xyz",
     },
     {
       icon: <BookOpen size={24} />,
@@ -298,7 +301,7 @@ const CommunityEngagementSection = () => {
         </div>
         <div className={`${styles.sectionActions} ${styles.justifyCenter} ${styles.marginTopLarge}`}>
           <Button
-            href="https://discord.gg/Sales3D2tW"
+            href="https://discord.gg/uQm7tuEE"
             target="_blank"
             className={styles.sectionButton}
             ghost
@@ -306,8 +309,21 @@ const CommunityEngagementSection = () => {
           >
             加入 Discord
           </Button>
-          <Button href="#" className={styles.sectionButton} ghost icon={<ArrowUpRight size={14} />}>
-            访问中文论坛
+          <Button
+            className={styles.sectionButton}
+            ghost
+            icon={<ArrowUpRight size={14} />}
+          >
+            <span className={styles.forumPreviewWrapper}>
+              访问中文社区
+              <Image
+                src="/community.png"
+                alt="社区预览"
+                width={240}
+                height={150}
+                className={styles.forumPreviewImage}
+              />
+            </span>
           </Button>
         </div>
       </div>
