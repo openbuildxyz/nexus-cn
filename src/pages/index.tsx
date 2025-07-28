@@ -292,11 +292,13 @@ const CommunityEngagementSection = () => {
         </p>
         <div className={styles.communityGrid}>
           {communityHighlights.map((item) => (
-            <div key={item.title} className={styles.communityCard}>
-              <div className={styles.communityCardIcon}>{item.icon}</div>
-              <h3 className={styles.communityCardTitle}>{item.title}</h3>
-              <p className={styles.communityCardDescription}>{item.description}</p>
-            </div>
+            <Link href={item.link || ''} key={item.title} passHref>
+              <div className={styles.communityCard}>
+                <div className={styles.communityCardIcon}>{item.icon}</div>
+                <h3 className={styles.communityCardTitle}>{item.title}</h3>
+                <p className={styles.communityCardDescription}>{item.description}</p>
+              </div>
+            </Link>
           ))}
         </div>
         <div className={`${styles.sectionActions} ${styles.justifyCenter} ${styles.marginTopLarge}`}>
