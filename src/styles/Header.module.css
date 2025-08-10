@@ -1,0 +1,173 @@
+/* --- Header --- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  height: var(--header-height);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--color-text-primary);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navList {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .navList {
+    display: flex;
+  }
+}
+
+.navList li {
+  position: relative; /* 方便定位submenu */
+}
+
+.navLink {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: var(--color-text-primary);
+}
+
+/* 带子菜单的导航项加个小箭头 */
+.hasSubmenu > .navLink::after {
+  content: " ▼";
+  font-size: 0.6rem;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* 子菜单整体样式 */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 140px;
+  background-color: var(--color-bg);
+  /* 去除边框和阴影 */
+  border: none;
+  border-radius: 0;
+  padding: 0.5rem 0;
+  box-shadow: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease;
+  z-index: 100;
+  list-style: none; /* 去除默认列表样式 */
+}
+
+/* 悬停显示子菜单 */
+.hasSubmenu:hover > .submenu {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 子菜单项 */
+.submenu li {
+  padding: 0;
+  margin: 0;
+  list-style: none; /* 再次确保去除点 */
+}
+
+/* 子菜单内链接样式 */
+.submenu .navLink {
+  color: var(--color-text-secondary);
+  font-weight: normal;
+  font-size: 0.85rem;
+  text-transform: none;
+  display: block;
+  padding: 0.25rem 1rem;
+  white-space: nowrap;
+}
+
+.submenu .navLink:hover {
+  color: var(--color-text-primary);
+}
+
+/* 其它样式保持不变 */
+.socialLinksHeader {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 992px) {
+  .socialLinksHeader {
+    display: flex;
+  }
+}
+
+.socialLinkItem {
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+  display: flex;
+}
+
+.socialLinkItem:hover {
+  color: var(--color-text-primary);
+}
+
+.mobileMenuButtonAntd {
+  color: var(--color-text-primary) !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.mobileMenuButtonAntd:hover,
+.mobileMenuButtonAntd:focus {
+  color: var(--antd-primary-color) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+@media (min-width: 992px) {
+  .mobileMenuButtonAntd {
+    display: none !important;
+  }
+}

@@ -1,42 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
+import { Button } from "antd"
+import { ArrowUpRight, Users, Code2, BookOpen, FileText, PenToolIcon as Tool, Github } from "lucide-react"
+
 import styles from "./index.module.css"
 
-import { Button } from "antd"
-
-import {
-  ArrowUpRight,
-  Menu,
-  Github,
-  Users,
-  Code2,
-  BookOpen,
-  FileText,
-  PenToolIcon as Tool,
-} from "lucide-react"
-import { SiGithub, SiDiscord } from "react-icons/si"
-import { useState } from "react"
-
-// --- Constants & Data ---
-const navLinks = [
-  { href: "#technology", label: "核心技术" },
-  { href: "#developers", label: "开发者" },
-  { href: "#community", label: "社区中心" },
-]
-
-const socialIcons = [
-  { href: "https://github.com/nexus-xyz", icon: <Github size={18} />, label: "GitHub" },
-  { href: "https://discord.gg/uQm7tuEE", icon: <SiDiscord size={18} />, label: "Discord" },
-]
-
-
-const NexusLogo = () => (
-  <Link href="/" className={styles.logo}>
-    <Image src="/favicon.png" alt="Nexus Logo" width={32} height={32} />
-    <span>NEXUS</span>
-  </Link>
-)
-
+// SmallNexusIcon directly implemented
 const SmallNexusIcon = () => (
   <svg
     width="16"
@@ -56,42 +25,6 @@ const SmallNexusIcon = () => (
 )
 
 // --- Page Sections defined directly in page.tsx ---
-
-const SiteHeader = () => (
-  <header className={styles.header}>
-    <div className={`${styles.container} ${styles.headerInner}`}>
-      <NexusLogo />
-      <nav className={styles.navigation}>
-        <ul className={styles.navList}>
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <Link href={link.href} className={styles.navLink}>
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className={styles.socialLinksHeader}>
-          {socialIcons.map((social) => (
-            <Link
-              href={social.href}
-              key={social.label}
-              aria-label={social.label}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.socialLinkItem}
-            >
-              {social.icon}
-            </Link>
-          ))}
-        </div>
-      </nav>
-      {/* TODO: Implement mobile menu functionality, possibly with Ant Design Drawer */}
-      <Button type="text" icon={<Menu size={22} />} className={styles.mobileMenuButtonAntd} aria-label="打开菜单" />
-    </div>
-  </header>
-)
-
 const HeroSection = () => (
   <section className={styles.heroSection}>
     <div className={`${styles.container} ${styles.heroContent}`}>
@@ -103,10 +36,20 @@ const HeroSection = () => (
         在人工智能、区块链和零知识证明的交汇点上创新，与全球及华语社区共同探索未来。
       </p>
       <div className={styles.heroActions}>
-        <Button href="https://linktr.ee/nexuschina  " className={styles.heroButton} ghost icon={<ArrowUpRight size={16} />}>
+        <Button
+          href="https://linktr.ee/nexuschina  "
+          className={styles.heroButton}
+          ghost
+          icon={<ArrowUpRight size={16} />}
+        >
           加入社区
         </Button>
-        <Button href="https://docs.nexus.xyz/home" className={styles.heroButton} ghost icon={<ArrowUpRight size={16} />}>
+        <Button
+          href="https://docs.nexus.xyz/home"
+          className={styles.heroButton}
+          ghost
+          icon={<ArrowUpRight size={16} />}
+        >
           了解技术
         </Button>
       </div>
@@ -120,8 +63,8 @@ const TechnologyHighlightsSection = () => {
     "模拟 RISC-V 处理器",
     "更易用、更可扩展、速度提升1000倍以上",
     "基于开放科学原则开发",
+    "基于开放科学原则开发",
   ]
-
   return (
     <section id="technology" className={styles.contentSection}>
       <div className={styles.container}>
@@ -137,17 +80,26 @@ const TechnologyHighlightsSection = () => {
                 新时代的技术需要全新的基础设施方法。Nexus L1 将世界的算力集中到单一、超高性能、与EVM兼容的区块链中。
               </p>
               <div className={styles.sectionActions}>
-                <Button href="https://docs.nexus.xyz/home" className={styles.sectionButton} ghost icon={<ArrowUpRight size={14} />}>
+                <Button
+                  href="https://docs.nexus.xyz/home"
+                  className={styles.sectionButton}
+                  ghost
+                  icon={<ArrowUpRight size={14} />}
+                >
                   探索 Layer 1
                 </Button>
-                <Button href="https://docs.nexus.xyz/home" className={styles.sectionButton} ghost icon={<ArrowUpRight size={14} />}>
+                <Button
+                  href="https://docs.nexus.xyz/home"
+                  className={styles.sectionButton}
+                  ghost
+                  icon={<ArrowUpRight size={14} />}
+                >
                   L1 技术文档
                 </Button>
               </div>
             </div>
           </div>
         </div>
-
         <div className={`${styles.technologySubSection} ${styles.zkvmSection}`}>
           <div className={styles.sectionMeta}>
             <span className={styles.sectionCategory}>NEXUS ZKVM</span>
@@ -160,7 +112,12 @@ const TechnologyHighlightsSection = () => {
                 作为通用虚拟机，Nexus zkVM 3.0 驱动着我们的世界超级计算机，并使可验证计算成为现实。
               </p>
               <div className={styles.sectionActions}>
-                <Button href="https://specification.nexus.xyz/" className={styles.sectionButton} ghost icon={<ArrowUpRight size={14} />}>
+                <Button
+                  href="https://specification.nexus.xyz/"
+                  className={styles.sectionButton}
+                  ghost
+                  icon={<ArrowUpRight size={14} />}
+                >
                   了解 Nexus zkVM
                 </Button>
                 <Button
@@ -172,7 +129,12 @@ const TechnologyHighlightsSection = () => {
                 >
                   GitHub
                 </Button>
-                <Button href="https://specification.nexus.xyz/" className={styles.sectionButton} ghost icon={<ArrowUpRight size={14} />}>
+                <Button
+                  href="https://specification.nexus.xyz/"
+                  className={styles.sectionButton}
+                  ghost
+                  icon={<ArrowUpRight size={14} />}
+                >
                   zkVM 3.0 规范
                 </Button>
               </div>
@@ -222,7 +184,6 @@ const DeveloperPortalSection = () => {
       linkHref: "https://discord.gg/uQm7tuEE",
     },
   ]
-
   return (
     <section id="developers" className={styles.contentSection}>
       <div className={styles.container}>
@@ -277,7 +238,6 @@ const CommunityEngagementSection = () => {
       description: "获取最新的 Nexus 技术文档中文翻译、教程和社区整理的学习资料。",
     },
   ]
-
   return (
     <section id="community" className={styles.contentSection}>
       <div className={styles.container}>
@@ -292,7 +252,7 @@ const CommunityEngagementSection = () => {
         </p>
         <div className={styles.communityGrid}>
           {communityHighlights.map((item) => (
-            <Link href={item.link || ''} key={item.title} passHref>
+            <Link href={item.link || ""} key={item.title} passHref>
               <div className={styles.communityCard}>
                 <div className={styles.communityCardIcon}>{item.icon}</div>
                 <h3 className={styles.communityCardTitle}>{item.title}</h3>
@@ -311,11 +271,7 @@ const CommunityEngagementSection = () => {
           >
             加入 Discord
           </Button>
-          <Button
-            className={styles.sectionButton}
-            ghost
-            icon={<ArrowUpRight size={14} />}
-          >
+          <Button className={styles.sectionButton} ghost icon={<ArrowUpRight size={14} />}>
             <span className={styles.forumPreviewWrapper}>
               访问中文社区
               <Image
@@ -333,46 +289,16 @@ const CommunityEngagementSection = () => {
   )
 }
 
-const SiteFooter = () => (
-  <footer className={styles.footer}>
-    <div className={`${styles.container} ${styles.footerInner}`}>
-      <div className={styles.footerInfo}>
-        <NexusLogo />
-        <p className={styles.footerText}>
-          &copy; {new Date().getFullYear()} Nexus. 保留所有权利。中文社区内容仅供参考。
-        </p>
-      </div>
-      <div className={styles.footerSocials}>
-        {socialIcons.map((social) => (
-          <Button
-            type="text"
-            href={social.href}
-            key={social.label}
-            aria-label={social.label}
-            target="_blank"
-            rel="noopener noreferrer"
-            icon={social.icon}
-            className={styles.socialLinkItemAntd}
-          />
-        ))}
-      </div>
-    </div>
-  </footer>
-)
-
 // --- Main Page Component ---
 export default function HomePage() {
   return (
     <div className={styles.pageWrapper}>
-      <SiteHeader />
-      <main className={styles.mainContent}>
+      <div className={styles.mainContent}>
         <HeroSection />
         <TechnologyHighlightsSection />
         <DeveloperPortalSection />
         <CommunityEngagementSection />
-      </main>
-      <SiteFooter />
+      </div>
     </div>
   )
 }
-
